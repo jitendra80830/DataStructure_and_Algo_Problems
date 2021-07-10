@@ -1,8 +1,12 @@
 package RecursionPack;
 
+import java.util.Scanner;
+
 public class Sub_Sequence {
     public static void main(String[] args){
-        sub_Seq("abc","");
+        Scanner sc = new Scanner(System.in);
+        String n = sc.next();
+        sub_Seq(n,"");
     }
 
     private static void sub_Seq(String ques, String ans) {
