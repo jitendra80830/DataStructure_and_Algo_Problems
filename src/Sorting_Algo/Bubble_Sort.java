@@ -9,6 +9,7 @@ public class Bubble_Sort {
         }
     }
     public static void bubble_sort(int arr[]){
+
         for(int pass = 1;pass<=arr.length-1;pass++){
             for(int j=0;j<arr.length-pass;j++){
                 if(arr[j]>arr[j+1]){
