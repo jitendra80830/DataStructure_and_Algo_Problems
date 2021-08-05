@@ -1,7 +1,7 @@
 package StackPck;
 
 public class Stack {
-    private int [] data;
+    protected int [] data;
     int top;
     public Stack(){
         this.data = new int[5];
