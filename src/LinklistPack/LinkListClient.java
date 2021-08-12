@@ -10,7 +10,10 @@ public class LinkListClient {
         list.addLast(40);
         list.addLast(50);
         list.display();
+        list.addIndex(80,3);
+        list.display();
         System.out.println(list.getFirst());
         System.out.println(list.getLast());
+        System.out.println(list.getIndex(3));
     }
 }
