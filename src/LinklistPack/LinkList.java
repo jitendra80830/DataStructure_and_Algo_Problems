@@ -101,4 +101,112 @@ public class LinkList {
     public int getIndex(int k) throws Exception {
         return this.getNode(k).data;
     }
+    public int deleteFirst() throws Exception {
+        if(this.size==0){
+            throw new Exception("LinkList is Empty");
+        }
+        Node temp = this.head;
+        this.head = this.head.next;
+        temp.next = null;
+        this.size--;
+        return temp.data;
+    }
+    public int deleteLast() throws Exception {
+        if(this.size==0){
+            throw new Exception("LinkList is Empty");
+        }
+        if(this.size==1){
+            return deleteFirst();
+        }else {
+            Node second_last = this.getNode(this.size - 2);
+            int rv = this.tail.data;
+            this.tail = second_last;
+            this.tail.next= null;
+            this.size--;
+            return rv;
+        }
+    }
+    public int deleteAtMiddle(int k) throws Exception {
+        if(this.size==0){
+            throw new Exception("LinkList is Empty");
+        }
+        if(k == 0){
+            return deleteFirst();
+        }else if(k == this.size){
+            return deleteLast();
+        }else {
+            Node ith_1 = getNode(k - 1);//ith-1 index
+            Node ith = ith_1.next; //ith index
+            ith_1.next = ith_1.next.next;
+            ith.next = null;
+            return ith.data;
+        }
+
+    }
+    public int size(){
+        return this.size;
+    }
+    public void reverseData() throws Exception {
+        int i = 0;
+        int j = this.size-1;
+        while (i < j){
+            Node ith = getNode(i);
+            Node jth = getNode(j);
+            int temp = ith.data;
+            ith.data = jth.data;
+            jth.data = temp;
+            i++;
+            j--;
+
+        }
+    }
+    public void reverseLink(){
+        Node prev = null;
+        Node curr = this.head;
+        while (curr!=null){
+            Node ahead = curr.next; //2k
+            curr.next = prev; //null
+            prev = curr;
+            curr = ahead;
+        }
+        Node temp = this.head;
+        this.head = this.tail;
+        this.tail = temp;
+    }
+    private void reverseRecursive(Node curr , Node prev){
+        if(curr== null){
+            return;
+        }
+
+        reverseRecursive(curr . next , curr);
+        curr.next = prev;
+    }
+    public void reverseRecursive(){
+        reverseRecursive(this.head , null);
+
+        Node temp = this.head;
+        this.head = this.tail;
+        this.tail = temp;
+    }
+    public void dataReverseRecursion(){
+        HeapMover heapMover = new HeapMover();
+        heapMover.mover = this.head;
+        dataReverseRecursion(this.head ,heapMover , 0 );
+
+    }
+    private class HeapMover{
+        Node mover;
+    }
+    private void dataReverseRecursion(Node curr , HeapMover prev , int counter){
+        if(curr == null){
+            return;
+        }
+        dataReverseRecursion(curr.next , prev , counter + 1);
+        if(counter >= this.size/2) {
+            int temp = prev.mover.data;
+            prev.mover.data = curr.data;
+            curr.data = temp;
+            prev.mover= prev.mover.next;
+        }
+    }
 }
