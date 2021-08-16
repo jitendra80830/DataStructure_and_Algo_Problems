@@ -17,8 +17,8 @@ public class LinkListClient {
         //System.out.println(list.getIndex(3));
         //System.out.println(list.deleteAtMiddle(2));
         list.display();
-        list.dataReverseRecursion();
-        list.display();
+        System.out.println(list.mid());
+        //list.display();
     }
 
 }

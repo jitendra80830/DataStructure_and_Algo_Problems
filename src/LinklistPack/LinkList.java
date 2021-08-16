@@ -209,4 +209,119 @@ public class LinkList {
             prev.mover= prev.mover.next;
         }
     }
+    public int mid(){
+        return midNode().data;
+        //return secondmidNode().data;
+        
+    }
+
+    private Node midNode(){
+        Node slow = this.head;
+        Node fast = this.head;
+        while (fast.next!=null && fast.next.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow; //or return slow.next for  second mid
+
+    }
+    private Node secondmidNode(){
+        Node slow = this.head;
+        Node fast = this.head;
+        while (fast!=null && fast.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+
+    }
+    public int kthFromLast(int k){
+        Node slow = this.head;
+        Node  fast = this.head;
+        for(int i=1;i<=k;i++){
+            fast = fast . next; //kth node
+        }
+        while (fast!=null){
+            slow = slow.next;
+            fast = fast.next;
+        }
+        return slow.data;
+    }
+    public void createCycle() throws Exception {
+        Node node = getNode(2);
+        this.tail.next = node;
+    }
+    public boolean isCycle(){ //Floyed Algorithm
+        Node slow = this.head;
+        Node fast = this.head;
+
+        while (fast!=null && fast.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow==fast){
+                return true;
+
+            }
+        }
+        return false;
+    }
+    public Node cycleNode(){ //Return node where create cycle node
+        Node slow = this.head;
+        Node fast = this.head;
+
+        while (fast!=null && fast.next!=null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow==fast){
+                return slow;
+
+            }
+        }
+        return null;
+    }
+    public void removeCycle(){
+        Node meet = cycleNode();
+        if(meet == null){
+            return;
+        }
+        Node start = this.head;
+        while (start!=null){ //1k ,2k ,3k..........
+            //loop in cycle
+            Node temp = meet;
+            while (temp.next!=meet){
+                if(temp.next == start){
+                    temp.next = null;
+                    return;
+                }
+                temp = temp.next;
+            }
+            start = start.next;
+        }
+    }
+    public void removeCycle2(){
+        Node meet = cycleNode();
+        if(meet == null){
+            return;
+        }
+        //step 1.count no of node in cycle / loop
+        int c =1;
+        Node temp = meet;
+        while (temp.next!=meet){
+            temp = temp.next;
+            c++;
+        }
+        //step 2.fast go ahead up to no of node(n step)
+        Node fast = this.head;
+        while (c>0){
+            fast = fast.next;
+            c--;
+        }
+        //step 3 .slow and fast same speed run
+        Node slow = this.head;
+        while (slow.next!= fast.next){
+            slow = slow.next;
+            fast = fast.next;
+        }
+        fast.next = null;
+    }
 }
