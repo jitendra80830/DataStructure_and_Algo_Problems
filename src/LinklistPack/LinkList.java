@@ -324,4 +324,66 @@ public class LinkList {
         }
         fast.next = null;
     }
+    public void fluyedRemoveCycle(){
+        Node meet = cycleNode();
+        if(meet == null){
+            return;
+        }
+        Node fast = meet;
+        Node slow = this.head;
+        while (slow.next!=fast.next){
+            slow = slow.next;
+            fast = fast .next;
+        }
+        fast .next = null;
+
+    }
+    public Node getIntersectionNode(){
+        return getIntersectionNode(this.head , this.head);
+
+    }
+    private Node getIntersectionNode(Node headA , Node headB){
+        Node A = headA;
+        Node B = headB;
+
+        while (A!=B){
+            if(A == null){
+                A = headB;
+            }else {
+                A = A.next;
+            }
+            if(B== null){
+                B = headA;
+            }else {
+                B = B.next;
+            }
+        }
+        return A;
+    }
+    public void mergeTwoLinkList(LinkList other){
+        Node headA = this.head;
+        Node headB = other.head;
+        LinkList temp = new LinkList();
+        while (headA!=null && headB!=null){
+            if(headA.data<headB.data){
+                temp.addLast(headA.data);
+                headA = headA.next;
+            }else {
+                temp.addLast(headB.data);
+                headB = headB.next;
+            }
+
+        }
+        while (headA!=null){
+            temp.addLast(headA.data);
+            headA = headA.next;
+        }
+        while (headB!=null){
+            temp.addLast(headB.data);
+            headB = headB.next;
+        }
+        this.head = temp.head;
+        this.tail = temp.head;
+        this.size = temp.size;
+    }
 }
