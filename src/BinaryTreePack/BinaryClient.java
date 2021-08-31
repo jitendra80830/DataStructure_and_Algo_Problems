@@ -7,11 +7,14 @@ public class BinaryClient {
         System.out.println(bt.max());
         System.out.println(bt.ht());
         System.out.println(bt.size());
-        bt.preOrder();
-        bt.postOrder();
-        bt.inOrder();
-        bt.levelOrder();
-        bt.levelOrderWise();
+     //   bt.preOrder();
+      //  bt.postOrder();
+      //  bt.inOrder();
+       // bt.levelOrder();
+        //bt.levelOrderWise();
+        //bt.levelOrderWise2();
+       // bt.zig_Zag();
+        bt.zig_Zag2();
 
     }
 }
