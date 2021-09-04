@@ -1,6 +1,6 @@
 package Opps2;
 
-public class Cars {
+public class Cars implements Comparable<Cars> {
     int price;
     int speed;
     String color;
@@ -15,5 +15,13 @@ public class Cars {
     }
     public String toString(){
         return "P "+this.price+" S "+this.speed+" C "+this.color;
+    }
+
+    @Override
+    public int compareTo(Cars o) {
+        //return this.speed - o.speed;
+        //return o.price - this.price;
+        return this.color.compareTo(o.color);
+
     }
 }

@@ -2,7 +2,7 @@ package LinklistPack;
 
 public class LinkListClient {
     public static void main(String[] args) throws Exception {
-        LinkList list = new LinkList();
+        Gen_LinkList list = new Gen_LinkList();
         list.addFirst(10);
         list.addFirst(20);
         //list.display();

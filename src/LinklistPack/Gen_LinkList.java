@@ -1,9 +1,14 @@
 package LinklistPack;
 
-public class LinkList {
+
+import java.util.Comparator;
+
+public class Gen_LinkList<T>  {
+
+
 
     private class Node{
-        int data;
+        T data;
         Node next;
     }
     private Node head;
@@ -18,13 +23,13 @@ public class LinkList {
         }
         System.out.println(".");
     }
-    public void addFirst(int item){
+    public void addFirst(T item){
         Node newNode = new Node(); //create new node
         newNode.data = item; //add data in new node
         if(this.size == 0){
             this.head = newNode;
             this.tail = newNode;
-           this.size++;
+            this.size++;
 
         }else {
             newNode.next = this.head;
@@ -33,7 +38,7 @@ public class LinkList {
         }
 
     }
-    public void addLast(int item){
+    public void addLast(T item){
         if(size == 0){
             addFirst(item);
         }else {
@@ -44,20 +49,20 @@ public class LinkList {
             size++;
         }
     }
-    public int getFirst() throws Exception {
+    public T getFirst() throws Exception {
         if(this.head == null){
             throw new Exception("LinkList is Empty");
         }
         return this.head.data;
     }
-    public int getLast() throws Exception {
+    public T getLast() throws Exception {
         if(this.head == null){
             throw new Exception("LinkList is Empty");
         }
         return this.tail.data;
     }
     //O(n)
-    public void addIndex(int item , int k) throws Exception {
+    public void addIndex(T item , int k) throws Exception {
         if(k < 0 || k>this.size){
             throw new Exception("Invalid Index");
         }
@@ -76,7 +81,7 @@ public class LinkList {
             this.size++;
 
             //or
-           // Node newNode1 = new Node();
+            // Node newNode1 = new Node();
             //Node prev1 = getNode(k -1);
             //Node prevNext1 = prev1.next;
             //newNode1 .next = prevNext1;
@@ -98,10 +103,10 @@ public class LinkList {
             return temp;
         }
     }
-    public int getIndex(int k) throws Exception {
+    public T getIndex(int k) throws Exception {
         return this.getNode(k).data;
     }
-    public int deleteFirst() throws Exception {
+    public T deleteFirst() throws Exception {
         if(this.size==0){
             throw new Exception("LinkList is Empty");
         }
@@ -111,7 +116,7 @@ public class LinkList {
         this.size--;
         return temp.data;
     }
-    public int deleteLast() throws Exception {
+    public T deleteLast() throws Exception {
         if(this.size==0){
             throw new Exception("LinkList is Empty");
         }
@@ -119,14 +124,14 @@ public class LinkList {
             return deleteFirst();
         }else {
             Node second_last = this.getNode(this.size - 2);
-            int rv = this.tail.data;
+            T rv = this.tail.data;
             this.tail = second_last;
             this.tail.next= null;
             this.size--;
             return rv;
         }
     }
-    public int deleteAtMiddle(int k) throws Exception {
+    public T deleteAtMiddle(int k) throws Exception {
         if(this.size==0){
             throw new Exception("LinkList is Empty");
         }
@@ -152,7 +157,7 @@ public class LinkList {
         while (i < j){
             Node ith = getNode(i);
             Node jth = getNode(j);
-            int temp = ith.data;
+            T temp = ith.data;
             ith.data = jth.data;
             jth.data = temp;
             i++;
@@ -203,16 +208,16 @@ public class LinkList {
         }
         dataReverseRecursion(curr.next , prev , counter + 1);
         if(counter >= this.size/2) {
-            int temp = prev.mover.data;
+            T temp = prev.mover.data;
             prev.mover.data = curr.data;
             curr.data = temp;
             prev.mover= prev.mover.next;
         }
     }
-    public int mid(){
+    public T mid(){
         return midNode().data;
         //return secondmidNode().data;
-        
+
     }
 
     private Node midNode(){
@@ -235,7 +240,7 @@ public class LinkList {
         return slow;
 
     }
-    public int kthFromLast(int k){
+    public T kthFromLast(int k){
         Node slow = this.head;
         Node  fast = this.head;
         for(int i=1;i<=k;i++){
@@ -387,3 +392,4 @@ public class LinkList {
 //        this.size = temp.size;
 //    }
 }
+

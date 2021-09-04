@@ -2,7 +2,7 @@ package LinklistPack;
 
 public class QpsClient {
     public static void main(String[] args) throws Exception {
-        LinkList list = new LinkList();
+        Gen_LinkList list = new Gen_LinkList();
         list.addLast(1);
         list.addLast(22);
         list.addLast(33);
@@ -14,7 +14,7 @@ public class QpsClient {
         list.addLast(90);
         list.addLast(92);
 
-        LinkList list1 = new LinkList();
+        Gen_LinkList list1 = new Gen_LinkList();
         list1.addLast(10);
         list1.addLast(20);
         list1.addLast(30);
@@ -34,7 +34,7 @@ public class QpsClient {
         //System.out.println(list.isCycle());
         list.display();
         list1.display();
-        list.mergeTwoLinkList(list1);
+       // list.mergeTwoLinkList(list1);
         list.display();
     }
 
