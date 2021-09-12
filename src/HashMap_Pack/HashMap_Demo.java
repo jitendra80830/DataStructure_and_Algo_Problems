@@ -34,6 +34,8 @@ class Hashmap {
         treeMap.put("Akash",22);
         treeMap.put("Ramesh",27);
         treeMap.put("Raju",95);
+        //treeMap.put(null , null); // not allowed
+        //treeMap.put("A" , null); // Allowed
         System.out.println(treeMap);
 //        System.out.println(treeMap.containsKey("Ram")); //log(n)
 //        System.out.println(treeMap.get("Jitendra"));//log(n)
@@ -47,6 +49,7 @@ class Hashmap {
         linkedHashMap.put("Akash",22);
         linkedHashMap.put("Ramesh",27);
         linkedHashMap.put("Raju",95);
+       // linkedHashMap.put(null , null); //Allowed
         System.out.println(linkedHashMap); // you can print which order you written
 
     }

@@ -1,6 +1,7 @@
 package HashMap_Pack;
 
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.TreeSet;
 
 public class HashSet_Demo {
@@ -11,6 +12,7 @@ public class HashSet_Demo {
         set.add("Ritesh");
         set.add("Tridip");
         set.add("Aman");
+       // set.add(null); // Allowed
         System.out.println(set);
         //System.out.println(set.contains("Jitendra"));
 
@@ -21,8 +23,20 @@ public class HashSet_Demo {
         treeSet.add("Samir");
         treeSet.add("Ritesh");
         treeSet.add("Tridip");
+       // treeSet.add(null);// Not Allowed
         treeSet.add("Aman");
         System.out.println(treeSet); //it give sorted order
+
+
+        LinkedHashSet<String> linkedHashSet = new LinkedHashSet<>(); // it give same order which you written Log(n)
+
+        linkedHashSet.add("Jitendra");
+        linkedHashSet.add("Samir");
+        linkedHashSet.add("Ritesh");
+        linkedHashSet.add("Tridip");
+        linkedHashSet.add("Aman");
+        //linkedHashSet.add(null);//Allowed
+        System.out.println(linkedHashSet);
 
     }
 }
