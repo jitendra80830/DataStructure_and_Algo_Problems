@@ -146,7 +146,226 @@ public class Graph {
         return false;
 
     }
+    public void BFT() {
+        Queue<Integer> q = new LinkedList<>();
+        HashSet<Integer> visited = new HashSet<>();
+        for (int src : map.keySet()) {
+            if (visited.contains(src)) { //  if already visited then no need to run above code you can go for next iteration
+                continue;
+            }
+            // add in q
+            q.add(src);
+
+            while (!q.isEmpty()) {
+                //Remove from Queue
+                int rv = q.remove();
+
+                //ignore marks  3
+                if (visited.contains(rv)) {      // if already visited then ignore
+                    continue;
+                }
+                System.out.print(rv + " "); //  print that ele which removing from queue
+                //visited marks
+                visited.add(rv);
+                for (int nbrs : map.get(rv).keySet()) {   // if not visited nbrs then add in q
+                    if (!visited.contains(nbrs)) {
+                        q.add(nbrs);
+                    }
+                }
+
+            }
 
 
+        }
+    }
+        public void  DFT(){
+            Stack<Integer> s = new Stack<>();
+            HashSet<Integer> visited = new HashSet<>();
+            for(int src : map.keySet()) {
+                if(visited.contains(src)){// if already visited then no need to run above code you can go for next iteration
+                    continue;
+                }
 
+                // add in q
+                s.push(src);
+
+                while (!s.isEmpty()) {
+                    //Remove from Queue
+                    int rv = s.pop();
+                    //ignore marks  3
+                    if (visited.contains(rv)) {      // if already visited then ignore
+                        continue;
+                    }
+                    System.out.print(rv + " ");
+                    //visited marks
+                    visited.add(rv);
+                    for (int nbrs : map.get(rv).keySet()) {   // if not visited nbrs then add in q
+                        if (!visited.contains(nbrs)) {
+                            s.push(nbrs);
+                        }
+                    }
+
+                }
+            }
+        }
+    public boolean isCycle() {
+        Queue<Integer> q = new LinkedList<>();
+        HashSet<Integer> visited = new HashSet<>();
+        for (int src : map.keySet()) {
+            if (visited.contains(src)) { //  if already visited then no need to run above code you can go for next iteration
+                continue;
+            }
+            // add in q
+            q.add(src);
+
+            while (!q.isEmpty()) {
+                //Remove from Queue
+                int rv = q.remove();
+
+                //ignore marks  3
+                if (visited.contains(rv)) {      // if already visited mens Cycle present
+                    return true;
+                }
+                //visited marks
+                visited.add(rv);
+                for (int nbrs : map.get(rv).keySet()) {   // if not visited nbrs then add in q
+                    if (!visited.contains(nbrs)) {
+                        q.add(nbrs);
+                    }
+                }
+
+            }
+
+
+        }
+        return false;
+    }
+    public boolean isConnected() {
+        Queue<Integer> q = new LinkedList<>();
+        HashSet<Integer> visited = new HashSet<>();
+        int count =0;
+        for (int src : map.keySet()) {
+            if (visited.contains(src)) { //  if already visited then no need to run above code you can go for next iteration
+                continue;
+            }
+            count++;
+            // add in q
+            q.add(src);
+
+
+            while (!q.isEmpty()) {
+                //Remove from Queue
+                int rv = q.remove();
+
+                //ignore marks  3
+                if (visited.contains(rv)) {      // if already visited then ignore
+                    continue;
+                }
+                //visited marks
+                visited.add(rv);
+                for (int nbrs : map.get(rv).keySet()) {   // if not visited nbrs then add in q
+                    if (!visited.contains(nbrs)) {
+                        q.add(nbrs);
+                    }
+                }
+
+            }
+
+        }
+       return count == 1;
+    }
+    public ArrayList<ArrayList<Integer>> GetAll_Component() {
+        Queue<Integer> q = new LinkedList<>();
+        HashSet<Integer> visited = new HashSet<>();
+        ArrayList<ArrayList<Integer>> ans =new ArrayList<>();
+        int count =0;
+        for (int src : map.keySet()) {
+            if (visited.contains(src)) { //  if already visited then no need to run above code you can go for next iteration
+                continue;
+            }
+            count++;
+            ArrayList<Integer> list = new ArrayList<>();
+            // add in list
+            q.add(src); //add in list
+
+
+            while (!q.isEmpty()) {
+                //Remove from Queue
+                int rv = q.remove();
+
+                //ignore marks  3
+                if (visited.contains(rv)) {      // if already visited then ignore
+                    continue;
+                }
+                //visited marks
+                visited.add(rv);
+                list.add(rv);
+                for (int nbrs : map.get(rv).keySet()) {   // if not visited nbrs then add in list
+                    if (!visited.contains(nbrs)) {
+                        q.add(nbrs);
+                    }
+                }
+
+            }
+            ans.add(list);//add in 2D list
+
+        }
+        return ans; // return 2D list
+    }
+    public boolean isTree(){
+        return (!isCycle()) && isConnected();
+    }
+    public void kruskal(){
+        Disjoint_Set_Union ds = new Disjoint_Set_Union();
+        for(int keys : map.keySet()){
+            ds.create(keys); // creating node of this keys(val)
+        }
+        ArrayList<Edges> list = getAllEdge(); // geting all edges
+
+        Collections.sort(list);
+        for(int i=0;i<list.size() ;i++){
+            Edges eg = list.get(i);
+            int r1 =ds.find(eg.vt1);
+            int r2 = ds.find(eg.vt2);
+
+            if(r1== r2){
+                //Nothing do
+            }else {
+                System.out.println(eg);
+                ds.union(r1 ,r2);
+            }
+        }
+    }
+
+    public ArrayList<Edges> getAllEdge(){ // for get all edges
+        ArrayList<Edges> ans = new ArrayList<>();
+        for(int key : map.keySet()){ // get keysets of map
+
+            for (int nbrs : map.get(key).keySet()){ //  get keysets's crosponding map's keysets is called nbrs
+                Edges edges = new Edges(key , nbrs , map.get(key).get(nbrs));  // cost = key ke crosponding nbrs's cost
+
+                ans.add(edges); // add in arraylist
+            }
+        }
+        return ans;
+
+    }
+    public class Edges implements Comparable<Edges>{ // for b/w two edged min cost
+        int vt1;
+        int vt2;
+        int cost;
+
+        public Edges(int vt1 , int vt2 , int cost){
+            this.vt1 = vt1;
+            this.vt2 = vt2;
+            this.cost = cost;
+        }
+        public String toString(){
+            return this.vt1+"--->"+this.vt2+" @ "+this.cost;
+        }
+
+        public int compareTo(Edges o) {
+            return this.cost - o.cost;
+        }
+    }
 }
