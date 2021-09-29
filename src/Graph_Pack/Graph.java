@@ -368,4 +368,46 @@ public class Graph {
             return this.cost - o.cost;
         }
     }
+    public class PrimsPiars implements  Comparable<PrimsPiars>{
+        int vt;
+        int acqvt;
+        int cost;
+
+        public PrimsPiars(int vt ,int acqvt ,int cost){
+            this.vt = vt;
+            this.acqvt = acqvt;
+            this.cost = cost;
+        }
+        public String toString(){
+            return vt+" --> "+acqvt+" @ "+cost;
+        }
+
+        @Override
+        public int compareTo(PrimsPiars o) {
+            return this.cost - o.cost;
+        }
+    }
+    public void prims(){
+        HashSet<Integer> visited = new HashSet<>();
+        PriorityQueue<PrimsPiars> q = new PriorityQueue<>();
+
+        q.add(new PrimsPiars(1,1,0)); //add 1st vertex in priority queue
+
+        while (!q.isEmpty()){
+            PrimsPiars rv = q.remove(); // removing from pq
+
+            if(visited.contains(rv.vt)){ // if allready visited then ignore and go for next iteretion
+                continue;
+            }
+            visited.add(rv.vt); // marking visited
+            System.out.println(rv); // print removing's rv
+            for(int nbrs : map.get(rv.vt).keySet()){ //get noubers of vt's keysets
+                if(!visited.contains(nbrs)){  // if not contains in visited then
+                    PrimsPiars p = new PrimsPiars(nbrs ,rv.vt ,map.get(rv.vt).get(nbrs));
+                    q.add(p); ///add in pq
+                }
+
+            }
+        }
+    }
 }

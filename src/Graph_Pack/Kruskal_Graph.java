@@ -11,6 +11,7 @@ public class Kruskal_Graph {
         g.addEdge(5,6,2);
         g.addEdge(6,7,4);
         g.addEdge(5,7,6);
-        g.kruskal();
+        //g.kruskal();
+        g.prims();
     }
 }
