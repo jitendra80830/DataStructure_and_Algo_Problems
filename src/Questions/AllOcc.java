@@ -1,4 +1,4 @@
-package Revisions;
+package Questions;
 
 public class AllOcc {
     public static void main(String[] args){
