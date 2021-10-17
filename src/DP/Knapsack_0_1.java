@@ -13,6 +13,7 @@ public class Knapsack_0_1 {
         }
         System.out.println(knapSackProblem(wt ,cost ,1,w));
         System.out.println(knapSackProblemTD(wt,cost,1,w,dp));
+        System.out.println(knapSackProblemBU(wt ,cost ,w));
 
     }
     public static int knapSackProblem(int[] wt , int [] cost ,int i,int w){
@@ -42,5 +43,23 @@ public class Knapsack_0_1 {
         }
         exc+=knapSackProblemTD(wt ,cost ,i+1,w ,dp);
         return dp[w][i] = Math.max(inc ,exc);
+    }
+    public static int knapSackProblemBU(int wt[] ,int cost[] ,int w){
+        int dp[][] = new int[w+1][cost.length+1];
+
+        for(int wait =1;wait<=w;wait++){
+            for(int i = 1;i<=wt.length;i++){
+                int inc = 0;
+                int exc = 0;
+                if(wait>=wt[i-1]){
+                    inc+= cost[i-1] + dp[wait-wt[i-1]][i-1];
+                }
+                exc+= dp[wait][i-1];
+                dp[wait][i]  = Math.max(exc ,inc);
+
+            }
+        }
+        return dp[w][cost.length];
+
     }
 }
