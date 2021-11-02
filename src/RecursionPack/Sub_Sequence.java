@@ -8,7 +8,7 @@ public class Sub_Sequence {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         String n = sc.next();
-        sub_Seq(n,"");
+       // sub_Seq(n,"");
         System.out.println(Count_sub_Seq("abc",""));
     }
 
@@ -24,7 +24,7 @@ public class Sub_Sequence {
     }
     public static int Count_sub_Seq(String ques, String ans) {
         if(ques.length() == 0){
-            //System.out.println(ans);
+            System.out.println(ans);
             return 1;
         }
         char ch = ques.charAt(0);

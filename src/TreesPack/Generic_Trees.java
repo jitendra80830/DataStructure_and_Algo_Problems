@@ -26,21 +26,21 @@ public class Generic_Trees {
     }
 
     public Node create_Tree(Node parent, int ith) {
-        if (parent == null) {
+        if (parent == null) { // if parent is null then inter data for parent
             System.out.println("Enter a data for root Node");
         } else {
-            System.out.println("Enter the data for " + ith + " ith child of " + parent.data);
+            System.out.println("Enter the data for " + ith + " ith child of " + parent.data);// if parent is not null then inter data for child
         }
         int item = sc.nextInt();//data of node
-        Node nn = new Node();//node
+        Node nn = new Node();//creating new node
         nn.data = item;
         System.out.println("No of child of "+nn.data);
-        int noc  = sc.nextInt();
-        for(int i = 0;i<noc;i++){
+        int noc  = sc.nextInt(); // for no of child inserting
+        for(int i = 0;i<noc;i++){ // loop for how many no of child noc then for that child will go call fun
             Node child = create_Tree(nn , i);
             nn.children.add(child);
         }
-        return nn;
+        return nn;//return root node here
     }
     public void display(){
         this.display(this.root);
@@ -48,12 +48,12 @@ public class Generic_Trees {
     private void display(Node node){
         String str = "";
         str+=node.data+"->";
-        for (Node child : node.children){
-            str+=child.data+" ,";
+        for (Node child : node.children){// loop for root's child
+            str+=child.data+" ,"; // adding in string of root's child
         }
         str+=".";
         System.out.println(str);
-        for (Node child : node.children){
+        for (Node child : node.children){//again recursive call for that's all child
             display(child);
         }
     }
@@ -62,26 +62,26 @@ public class Generic_Trees {
     }
     private int size(Node node){
         int ts = 0;
-        for(Node child : node.children){
-            ts+=size(child);
+        for(Node child : node.children){ // loop for child's size
+            ts+=size(child); // add in ts all child
         }
-        return ts +1;
+        return ts +1; //1 for parent size
     }
     public boolean find(int item){
         return find(this.root , item);
     }
 
     private boolean find(Node node, int item) {
-        if(node.data == item){
+        if(node.data == item){ // if node's data == item then true
             return true;
         }
-        for(Node child : node.children){
-            boolean ans = find(child , item);
+        for(Node child : node.children){ // again for child
+            boolean ans = find(child , item); // recursive calls
             if(ans){
-                return true;
+                return true; // if true at any node the return true
             }
         }
-        return false;
+        return false; //nhi to false
     }
     public int max(){
         return max(this.root);
@@ -100,18 +100,18 @@ public class Generic_Trees {
 
     private int ht(Node node) {
         int th = 0;
-        for(Node child : node.children){
-            th = Math.max(th , ht(child));
+        for(Node child : node.children){ // loop for root's child
+            th = Math.max(th , ht(child)); //here max of th and recursive call that's child's  ht
         }
-        return th + 1;
+        return th + 1;// 1 for a single node's height
     }
     public void preOrder(){
-        preOrder(this.root);
+        preOrder(this.root); //root
         System.out.println();
     }
 
     private void preOrder(Node node) {
-        System.out.print(node.data+" ");
+        System.out.print(node.data+" "); // 1st print node then call usake child node and again print
         for(Node child : node.children){
             preOrder(child);
         }
@@ -123,31 +123,31 @@ public class Generic_Trees {
 
     private void postOrder(Node node) {
 
-        for (Node child : node.children){
+        for (Node child : node.children){ // 1st call child node then print child
             postOrder(child);
         }
-        System.out.print(node.data+" ");
+        System.out.print(node.data+" "); //print child node
     }
     public void linearTree(){
-        linearTree(this.root);
+        linearTree(this.root); //passing root node
     }
 
     private void linearTree(Node node) {
-        for(Node child : node.children){
-            linearTree(child);
+        for(Node child : node.children){ // for linear of child
+            linearTree(child); // using recursive call
         }
-        while (node.children.size() > 1) {
-            Node tailNode = getTailNode(node.children.get(0)); //get tail node ( 0 child) of node
-            Node firstNode = node.children.remove(1);//1st node remove
-            tailNode.children.add(firstNode); // add 1st node in last(tail node)
+        while (node.children.size() > 1) { // jab children la size >1 ho then go
+            Node tailNode = getTailNode(node.children.get(0));  //get tail node ( 0 child) of node
+            Node firstNode = node.children.remove(1);//1st node removing of tree
+            tailNode.children.add(firstNode); // add 1st node in last(tail node) me
         }
     }
 
     private Node getTailNode(Node node) {
-        if(node.children.size() == 0){
+        if(node.children.size() == 0){ //if child is 0 then means this is tail node
             return node; //return tail node
         }
-        for (Node child : node.children){
+        for (Node child : node.children){ // otherwise call hoga uske child ka jab tak tail node na mil na jaye
             getTailNode(child);
         }
         return null;

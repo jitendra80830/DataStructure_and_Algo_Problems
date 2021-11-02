@@ -2,14 +2,14 @@ package RecursionPack;
 
 public class Lexico_Counting {
     public static void main(String[] args){
-        lexiCounting(0,1000);
+        lexiCounting(0,10);
 
     }
     public static void lexiCounting(int curr , int end){
         if(curr>end){
             return;
         }
-        System.out.println(curr);
+        System.out.print(curr+" ");
         int i=0;
         if(curr==0){
             i=1;

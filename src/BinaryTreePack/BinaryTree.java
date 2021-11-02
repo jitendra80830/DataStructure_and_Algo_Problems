@@ -7,8 +7,8 @@ public class BinaryTree {
 
     private class Node {
         int data;
-        Node left;
-        Node right;
+        Node left; // left child
+        Node right; //right child
 
     }
 
@@ -201,17 +201,17 @@ public class BinaryTree {
     public void levelOrderWise2() {
         Queue<Node> p = new LinkedList<>();//primary
         Queue<Node> h = new LinkedList<>();//helper
-        p.add((this.root));
+        p.add((this.root)); // root adding in primary
         while (!p.isEmpty()) {
             Node node = p.remove();
             System.out.print(node.data + " ");
             if (node.left != null) {
-                h.add(node.left);
+                h.add(node.left); // but left child adding in helper
             }
             if (node.right != null) {
-                h.add(node.right);
+                h.add(node.right); // but right child adding in helper
             }
-            if (p.isEmpty()) {//if primary empty
+            if (p.isEmpty()) {//if primary empty ho gya then primary point krega helper ko and helper new create hoga
                 p = h;   //then p will point to helper and helper create new queue
                 System.out.println();//change the line after printing from primary
                 h = new LinkedList<>();
@@ -239,10 +239,10 @@ public class BinaryTree {
                 }
                 size--;
             }
-            if(level%2==0){
+            if(level%2==0){ // if level is even then print
                 System.out.println(list);
             }else {
-                Collections.reverse(list);
+                Collections.reverse(list); //but if level is odd then printer after reverse
                 System.out.println(list);
             }
             level++;

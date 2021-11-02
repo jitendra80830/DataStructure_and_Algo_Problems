@@ -1,6 +1,6 @@
 package RecursionPack;
 
-public class Board_Path {
+public class  Board_Path {
     public static void main(String[] args){
         int n = 4;
         boardPath(0,n,"");

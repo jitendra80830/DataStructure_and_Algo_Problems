@@ -4,11 +4,25 @@ import java.util.ArrayList;
 
 public class PollindromePartitions {
     public static void main(String[] args){
-        //partition("nitin","");
-        ArrayList<String> list = new ArrayList<>();
-        ArrayList<ArrayList<String>> ans = new ArrayList<>();
-        partitionLeetCode("aab",list,ans);
-        System.out.println(ans);
+        allPartition("nitin","");
+//        ArrayList<String> list = new ArrayList<>();
+//        ArrayList<ArrayList<String>> ans = new ArrayList<>();
+//        //partitionLeetCode("aab",list,ans);
+//        //System.out.println(ans);
+    }
+
+    public static void allPartition(String ques ,String ans){
+        if(ques.length() == 0){
+            System.out.println(ans);
+            return;
+        }
+        for(int i =1;i<=ques.length();i++){
+            String roa = ques.substring(0 ,i);
+            String roq = ques.substring(i);
+
+            allPartition(roq , ans+roa+" ");
+
+        }
     }
     public static void partition(String ques , String ans){
         if(ques.length() == 0){
