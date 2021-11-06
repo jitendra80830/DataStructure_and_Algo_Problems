@@ -299,4 +299,73 @@ public class BinaryTree {
         int sd = ht(node.left) + ht(node.right) + 2; // find self diameter(root's) = left ka ht abd right ka ht + 2 for root's two left and right stick
         return Math.max(sd , Math.max(ld , rd)); //Max of self diameter and Max of left and right diameter
     }
+    public class DiaPair{
+        int ht = -1;
+        int dia = 0;
+    }
+    public DiaPair diameterOfBinaryTree2(Node node){
+        if(node == null){
+            return new DiaPair(); // if node is null then return ht=-1 and dia =0 in base case
+        }
+        DiaPair ldp = diameterOfBinaryTree2(node.left);
+        DiaPair rdp = diameterOfBinaryTree2(node.right);
+        DiaPair sdp = new DiaPair();
+        int sd = ldp.ht + rdp.ht +2;
+        int ht = Math.max(ldp.ht , rdp.ht)+1;
+        sdp.dia = Math.max(ldp.dia ,Math.max(rdp.dia , sd));
+        sdp.ht = ht;
+        return sdp;
+    }
+    public boolean isBalanceTree(Node node){ // if 0,1,-1 node pe hai to tree is balanced
+        if(node == null){
+            return true;
+        }
+        boolean lb = isBalanceTree(node.left); // for lft balance
+        boolean rb = isBalanceTree(node.right);// for right balance
+
+        int sb = Math.abs(ht(node.left) - ht(node.right)); // hit of left's - right's node
+        return lb && rb && sb<=1;
+    }
+    public class isBalanced{
+        int hit = -1;
+        boolean bal = true;
+    }
+    //optimize
+    public isBalanced isBalanceTree2(Node node){
+        if(node == null){
+            return new isBalanced();// if node is null then return ht=-1 and bal =true in base case
+        }
+
+        isBalanced lbp = isBalanceTree2(node.left); // for lft balance pair
+        isBalanced rbp = isBalanceTree2(node.right);// for rgt balance pair
+        isBalanced sbp = new isBalanced(); // for self balance pair
+        int sb  = Math.abs(lbp.hit - rbp.hit); // self balance
+        sbp.hit = Math.max(lbp.hit , rbp.hit) + 1; //  sbp ka hit
+        sbp.bal = (lbp.bal && rbp.bal && sb<=1);// sbp ka bal checking if true or not
+        return sbp; // return self balance pair
+    }
+    public static Node lowestCommonAncester(Node root , Node p , Node q){
+        if(root==null){ //  if root is null
+            return null;
+        }
+        if(root == p || root == p){ //  if root ==p and root ==q then return root
+            return root;
+        }
+        Node left = lowestCommonAncester(root.left , p ,q); // call for left
+        Node right = lowestCommonAncester(root.right ,p ,q); // call for right
+        if(left!=null && right!=null){ // if left !=null and right != null then return
+            return root;
+        }
+        else if(left!=null && right==null){ //if left !=null and right == null then return left
+            return left;
+        }
+        else if(left==null && right!=null){ //if left ==null and right != null then return right
+            return right;
+        }
+        else{ // if left ==null and right == null
+            return right;
+        }
+
+    }
+
 }
