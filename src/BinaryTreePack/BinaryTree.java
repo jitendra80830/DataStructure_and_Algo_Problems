@@ -367,5 +367,27 @@ public class BinaryTree {
         }
 
     }
+    public static Node lowestCommonAncester2(Node root , Node p , Node q) {
+        if(p == null || q==null){
+            return null;
+        }
+        if (root == null) { //  if root is null
+            return null;
+        }
+        if (root == p || root == p) { //  if root ==p and root ==q then return root
+            return root;
+        }
+        Node left = lowestCommonAncester2(root.left, p, q); // call for left
+        Node right = lowestCommonAncester2(root.right, p, q); // call for right
+        if (left != null && right != null) { // if left !=null and right != null then return
+            return root;
+        } else if (left != null && right == null) { //if left !=null and right == null then return left
+            return left;
+        } else if (left == null && right != null) { //if left ==null and right != null then return right
+            return right;
+        } else { // if left ==null and right == null
+            return right;
+        }
+    }
 
 }
