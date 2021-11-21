@@ -1,24 +1,20 @@
 public class adddd {
-    public static void main(String[] args){
-            int arr[]={1,1,2,3,3,3};
-            int n=arr.length;
-            int sum=0;
-            int i;
-            for ( i = 0; i < n; i++)
+    public static void main(String[] args)
+    {
+        int[] array = new int[] { 1, 2, 3, 4, 5, 7, 8, 8, 8, 9, 10 };
+
+        int sum = 0;
+        for (int j = 0; j < array.length; j++)
+        {
+            for (int k = j + 1; k < array.length; k++)
             {
-
-                for (int j = 0; j <n; j++)
+                if (k != j && array[k] == array[j])
                 {
-                    if (arr[i]==arr[j])
-                    {
-
-                        sum=sum+arr[i];
-
-                    }
-
+                    sum = sum + array[k];
+//                    System.out.println("Duplicate found: " + array[k] + " " + "Sum of the duplicate value is " + sum);
                 }
-
             }
-            System.out.println(sum);
+        }
+        System.out.println(sum);
     }
 }
