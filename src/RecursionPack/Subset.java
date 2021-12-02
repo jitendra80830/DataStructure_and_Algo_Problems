@@ -4,12 +4,12 @@ import java.util.ArrayList;
 
 public class Subset {
     public static void main(String[] args){
-        int arr[] = {1,2,3};
+        int arr[] = {2 ,4 ,1, 3, 6, 3 ,2, 6};
         ArrayList<Integer> list = new ArrayList<>();
         ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
-        //subset_Ele(arr,0,"");
+        subset_Ele(arr,0,"");
         //subset_User(arr,0,"");
-        subset_User_2D(arr,0,list,ans);
+        //subset_User_2D(arr,0,list,ans);
         System.out.println(ans);
 
     }

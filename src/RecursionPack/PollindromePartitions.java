@@ -4,11 +4,12 @@ import java.util.ArrayList;
 
 public class PollindromePartitions {
     public static void main(String[] args){
-        allPartition("nitin","");
+        //allPartition("aaa","");
 //        ArrayList<String> list = new ArrayList<>();
 //        ArrayList<ArrayList<String>> ans = new ArrayList<>();
-//        //partitionLeetCode("aab",list,ans);
+//        partitionLeetCode("aab",list,ans);
 //        //System.out.println(ans);
+        partition("aaa" , "");
     }
 
     public static void allPartition(String ques ,String ans){
@@ -68,3 +69,7 @@ public class PollindromePartitions {
         }
     }
 }
+//a a a
+//a aa
+//aa a
+//aaa
