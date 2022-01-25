@@ -63,7 +63,7 @@ public class Graph {
             return true;
         }
         visited.add(scr); // add visited
-        for(int nbrs : map.get(scr).keySet()) { // nebours finding
+        for(int nbrs : map.get(scr).keySet()) { // nebours finding of src
             if (!visited.contains(nbrs)) { // if not already visited then go ahead
                 boolean isPath = hasPath(nbrs, dis, visited);
                 if (isPath) {

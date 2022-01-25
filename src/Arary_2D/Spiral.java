@@ -14,7 +14,7 @@ public class Spiral {
         int total_elements = arr.length*arr[0].length;
         int count=0;
         while(count<total_elements) {
-            for (int col = min_col; col < max_col; col++) {
+            for (int col = min_col; col < max_col; col++) { //1st row
                 System.out.println(arr[min_col][col]+" ");
                 count++;
             }

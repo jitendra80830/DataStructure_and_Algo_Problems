@@ -8,8 +8,8 @@ public class Sub_Sequence {
     public static void main(String[] args){
         Scanner sc = new Scanner(System.in);
         String n = sc.next();
-       // sub_Seq(n,"");
-        System.out.println(Count_sub_Seq("abc",""));
+        sub_Seq(n,"");
+       // System.out.println(Count_sub_Seq("abc",""));
     }
 
     public static void sub_Seq(String ques, String ans) {
