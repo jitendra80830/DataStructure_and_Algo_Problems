@@ -36,17 +36,17 @@ public class SumPath2 {
                 return ;
             }
             //if root ka left and right node null hai and jo target value hai
-            // usme se root ka value minus krke if 0 aata hai to means tatget mil gaya hai return true ok
+            // usme se root ka value minus krke if 0 aata hai to uss root ke value ko curr  ke list me dal denge
             if(root.left == null && root.right == null && targetSum - root.val == 0){
                 curr.add(root.val);
-                list.add(new ArrayList<Integer>(curr));
-                curr.remove(curr.size() -1);
+                list.add(new ArrayList<Integer>(curr));//uss curr list ko 2d list me dal denge
+                curr.remove(curr.size() -1); // last element ko remove krte jayenge
 
             }
-            curr.add(root.val);
+            curr.add(root.val); // root ka value insert in curr list
             hasPathSum(root.left , targetSum - root.val ,list ,curr);
             hasPathSum(root.right , targetSum - root.val ,list ,curr);
-            curr.remove(curr.size() -1);
+            curr.remove(curr.size() -1); // remove element from last
 
 
 

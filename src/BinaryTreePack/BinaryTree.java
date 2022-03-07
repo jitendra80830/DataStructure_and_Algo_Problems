@@ -348,7 +348,7 @@ public class BinaryTree {
         if(root==null){ //  if root is null
             return null;
         }
-        if(root == p || root == p){ //  if root ==p and root ==q then return root
+        if(root == p || root == q){ //  if root ==p and root ==q then return root
             return root;
         }
         Node left = lowestCommonAncester(root.left , p ,q); // call for left
@@ -388,6 +388,29 @@ public class BinaryTree {
         } else { // if left ==null and right == null
             return right;
         }
+    }
+    public  Node lowestCommonAncesterval(Node root , int p , int q){
+        if(root==null){ //  if root is null
+            return null;
+        }
+        if(root.data == p || root.data == q){ //  if root ==p and root ==q then return root
+            return root;
+        }
+        Node left = lowestCommonAncesterval(root.left , p ,q); // call for left
+        Node right = lowestCommonAncesterval(root.right ,p ,q); // call for right
+        if(left!=null && right!=null){ // if left !=null and right != null then return
+            return root;
+        }
+        else if(left!=null && right==null){ //if left !=null and right == null then return left
+            return left;
+        }
+        else if(left==null && right!=null){ //if left ==null and right != null then return right
+            return right;
+        }
+        else{ // if left ==null and right == null
+            return right;
+        }
+
     }
 
 }

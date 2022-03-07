@@ -14,7 +14,9 @@ public class BinaryClient {
         //bt.levelOrderWise();
         //bt.levelOrderWise2();
        // bt.zig_Zag();
-        bt.zig_Zag2();
+        //bt.zig_Zag2();
+        //System.out.println(bt.lowestCommonAncesterval());
+
 
     }
 }

@@ -386,4 +386,10 @@ public class LinkList {
 //        this.tail = temp.head;
 //        this.size = temp.size;
 //    }
+//    public Node reverseInRange(Node node , int l , int r){
+//        if(node == null || l == r){
+//            return head;
+//        }
+//
+//    }
 }

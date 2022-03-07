@@ -1,11 +1,23 @@
 package Graph_Pack;
 
 import java.util.HashSet;
+import java.util.Scanner;
 
 public class Graph_Client {
     public static void main(String[] args){
+        Scanner sc = new Scanner(System.in);
+        int v = sc.nextInt();
+        int e = sc.nextInt();
 
-        Graph g = new Graph(7);
+        Graph g = new Graph(v);
+        for (int i = 0; i <v ; i++) {
+            g.addVertex(i);
+        }
+        for (int i = 0; i <e ; i++) {
+            int v1 = sc.nextInt();
+            int v2 = sc.nextInt();
+
+        }
 
         g.addEdge(1 ,4 ,6);
         g.addEdge(1 ,2 ,10);
@@ -15,6 +27,7 @@ public class Graph_Client {
         g.addEdge(5 ,6,4);
         g.addEdge(5 ,7,2);
         g.addEdge(6 ,7,3);
+
       // g.display();
         //g.removeEdge(4,5);
        // System.out.println();

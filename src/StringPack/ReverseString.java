@@ -10,12 +10,18 @@ public class ReverseString {
     }
 
     private static void reverseString(String str) {
-        int first =0;
+        char ch[] = str.toCharArray();
         int last = str.length()-1;
-        while (first < last){
-            char ch = str.charAt(last);
-          //  str.charAt(last) = str.charAt(first);
-            //str.charAt(first) = ch;
+        int half = str.length() /2;
+        for (int i = 0; i <half ; i++) {
+            char temp = ch[i];
+            ch[i] = ch[last - i];
+            ch[last -i] = temp;
         }
+        for (int i = 0; i <ch.length ; i++) {
+            System.out.print(ch[i]);
+
+        }
+
     }
 }

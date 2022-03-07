@@ -2,12 +2,12 @@ package DP;
 
 public class Fibbonacci {
     public static void main(String[] args){
-        int n = 10;
+        int n = 5;
         int dis[] = new int[n+1];
         //System.out.println(fib(n));
-        //System.out.println(fibNTD(n ,dis));
+        System.out.println(fibNTD(n ,dis));
         //System.out.println(fibNBU(n));
-        System.out.println(fibNITOp(n));
+        //System.out.println(fibNITOp(n));
 
     }
     public static int fib(int n){

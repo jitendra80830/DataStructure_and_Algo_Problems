@@ -54,7 +54,10 @@ public class Heap {
 
     }
     public void display(){
-        System.out.println(this.data);
+        for (int i = 0; i <data.size(); i++) {
+            System.out.print(data.get(i)+" ");
+        }
+        //System.out.println(this.data);
     }
     public int get(){
         return this.data.get(0);

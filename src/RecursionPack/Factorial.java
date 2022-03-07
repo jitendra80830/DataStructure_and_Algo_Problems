@@ -1,8 +1,9 @@
 package RecursionPack;
 public class Factorial {
     public static void main(String[] args){
-        //System.out.println(fib(5));
-        System.out.println(fav_tail(5,1));
+        //System.out.println(fac(5));
+        //System.out.println(fav_tail(5,1));
+        fac1(-1);
 
     }
     public static int fac(int n){
@@ -17,5 +18,15 @@ public class Factorial {
 
         }
         return fav_tail(n-1,ans*n);
+    }
+    public static void fac1(int number){
+        if(number < 1){
+            System.out.println("Number is negative ");
+        }
+        int factorial = 1;
+        for (int i = 1; i <=number ; i++) {
+            factorial = factorial * i;
+        }
+        System.out.println(factorial);
     }
 }

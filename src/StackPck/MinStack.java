@@ -31,7 +31,9 @@ public class MinStack {
         }
     }
     public int pop() throws Exception {
-
+        if(min_Stack.isEmpty()){
+            System.out.println("Stack is empty");
+        }
         if(this.min_Stack.peek() < min){
             int x = this.min_Stack.pop();
             int rt = this.min;
