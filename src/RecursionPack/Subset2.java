@@ -8,13 +8,17 @@ public class Subset2 {
     public static void main(String[] args){
         List<Integer> list = new ArrayList<>();
         List<List<Integer>> ans = new ArrayList<>();
-        int arr[] = {1,2,2};
+        int arr[] = {1,4,4};
         subset2(arr,0,list,ans);
         System.out.println(ans);
 
     }
     public static void subset2(int ques[] , int index, List<Integer> list,List<List<Integer>> ans){
         ans.add(new ArrayList<>(list));
+//        for (int i = 0; i <list.size() ; i++) {
+//            System.out.print(list.get(i)+" ");
+//        }
+//        System.out.println();
 
 
 

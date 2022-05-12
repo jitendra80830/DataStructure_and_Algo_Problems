@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class ConsChange2 {
     public static void main(String[] args){
-        int coins[] = {1,2,5};
-        int amount =5;
+        int coins[] = {2,3,5};
+        int amount =8;
         System.out.println(coinChange2(coins ,amount ,coins.length));
         int dp[][] = new int[amount+1][coins.length+1];
         for(int [] arr : dp){

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Subset {
     public static void main(String[] args){
-        int arr[] = {3,1,2};
+        int arr[] = {1,4,4};
         ArrayList<Integer> list = new ArrayList<>();
         ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
         //subset_Ele(arr,0,"");

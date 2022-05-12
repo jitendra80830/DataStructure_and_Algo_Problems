@@ -4,9 +4,9 @@ public class BinaryClient {
     public static void main(String[] args){
         BinaryTree bt = new BinaryTree();
         bt.display();
-        System.out.println(bt.max());
-        System.out.println(bt.ht());
-        System.out.println(bt.size());
+//        System.out.println(bt.max());
+//        System.out.println(bt.ht());
+//        System.out.println(bt.size());
      //   bt.preOrder();
       //  bt.postOrder();
       //  bt.inOrder();
@@ -16,6 +16,7 @@ public class BinaryClient {
        // bt.zig_Zag();
         //bt.zig_Zag2();
         //System.out.println(bt.lowestCommonAncesterval());
+        System.out.println(bt.findDistincVal());
 
 
     }

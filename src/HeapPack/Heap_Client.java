@@ -15,6 +15,10 @@ public class Heap_Client {
             int item = arr[i];
             hp.add(item);
         }
+        for (int i = 0; i <n ; i++) {
+            System.out.print(hp.get()+" ");
+            hp.delete();
+        }
 //        hp.add(3);
 //        hp.add(5);
 //        hp.add(7);
@@ -23,13 +27,13 @@ public class Heap_Client {
 //        hp.add(9);
 //        hp.add(13);
 //        hp.add(-2);
-        hp.display();
-        System.out.println();
-        System.out.println("Deleting min heap");
-
-        for (int i = 0; i <n;i++) {
-            System.out.print(hp.delete()+" ");
-        }
+//        hp.display();
+//        System.out.println();
+//        System.out.println("Deleting min heap");
+//
+//        for (int i = 0; i <n;i++) {
+//            System.out.print(hp.delete()+" ");
+//        }
 
 //        System.out.println(hp.get());
 //        System.out.println(hp.delete());

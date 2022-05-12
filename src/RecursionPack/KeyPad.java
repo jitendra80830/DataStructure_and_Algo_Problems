@@ -1,9 +1,9 @@
 package RecursionPack;
 
 public class KeyPad {
-    static String [] getString = {"abc","def","ghi","jkl","mno","pqrs","tuv","wx","yv"};
+    static String [] getString = {"abc","def","ghi","jkl","mno","pqrs","tuv","wx","yz"};
     public static void main(String[] args){
-        keyPaid("178","");
+        keyPaid("27","");
 
     }
     public static void keyPaid(String ques , String ans){

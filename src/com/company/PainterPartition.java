@@ -8,8 +8,8 @@ public class PainterPartition {
         Scanner sc = new Scanner(System.in);
         int t = sc.nextInt();
         while (t-- > 0) {
-            int nob = sc.nextInt();
-            int nop = sc.nextInt();
+            int nob = sc.nextInt(); //no fo paintings
+            int nop = sc.nextInt(); //no of painter
             int lengths[] = new int[nob];
             for (int i = 0; i < lengths.length; i++) {
                 lengths[i] = sc.nextInt();

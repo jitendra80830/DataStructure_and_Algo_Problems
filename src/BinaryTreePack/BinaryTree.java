@@ -413,4 +413,72 @@ public class BinaryTree {
 
     }
 
+    static boolean isSumTree(Node node)
+    {
+        int ls,rs;
+
+
+        if(node == null || (node.left == null && node.right == null))
+        {
+            return true;
+        }
+
+
+        // return sum left and right data
+        ls = sum(node.left);
+        rs = sum(node.right);
+
+
+        if((node.data == ls + rs) && isSumTree(node.left) != false && isSumTree(node.right) != false) // id stasified condition return true
+        {
+            return true;
+        }
+        return false;
+    }
+
+
+    static int sum(Node node)
+    {
+        if(node == null)
+        {
+            return 0;
+        }
+        return (sum(node.left) + node.data+sum(node.right)); // return root data and left and right
+    }
+    int findDistincVal(){
+        return findDistinctCount(root);
+    }
+    int findDistinctCount(Node node) {
+        //write your code here
+        HashMap<Long,Integer> hash = new HashMap<Long,
+                Integer>();
+        return printt(node,hash);
+    }
+    static int printt(Node node, HashMap<Long,Integer> m) {
+        if (node == null)
+            return m.size();
+
+        if(m.containsKey(node.data))
+
+        {
+            m.put((long) node.data, m.get(node.data) + 1);
+        }
+        else
+        {
+            m.put((long) node.data, 1);
+        }
+
+        int max_path = Math.max(printt(node.left, m),
+                printt(node.right, m));
+        if(m.containsKey(node.data)) {
+
+            m.put((long) node.data, m.get(node.data) - 1);
+        }
+
+        if (m.get(node.data) == 0)
+            m.remove(node.data);
+        return max_path;
+    }
+
+
 }

@@ -11,6 +11,8 @@ public class HeapDemo {
         pq.add(20);
         pq.add(9);
         pq.add(90);
+        System.out.println(pq.peek());
+        //pq.remove();
         System.out.println(pq);
 
         PriorityQueue<Integer> pqmax = new PriorityQueue<>(Collections.reverseOrder());//max Heap

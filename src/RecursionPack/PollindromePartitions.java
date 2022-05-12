@@ -9,7 +9,7 @@ public class PollindromePartitions {
 //        ArrayList<ArrayList<String>> ans = new ArrayList<>();
 //        partitionLeetCode("aab",list,ans);
 //        //System.out.println(ans);
-        partition("aaa" , "");
+        partition("ababa" , "");
     }
 
     public static void allPartition(String ques ,String ans){
@@ -26,8 +26,8 @@ public class PollindromePartitions {
         }
     }
     public static void partition(String ques , String ans){
+
         if(ques.length() == 0){
-            System.out.println(ans);
             return;
         }
 
@@ -35,6 +35,7 @@ public class PollindromePartitions {
             String roq = ques.substring(i); //rest of ques
             String roa = ques.substring(0,i); //rest of ans
             if(isPollindrome(roa)){
+
             partition(roq,ans+roa+" ");
             }
         }
