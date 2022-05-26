@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class CoinsChangeCombination {
     public static void main(String[] args){
-        int [] coins = {2,3,6,7};
-        int amount = 7;
+        int [] coins = {1,2,3,4,5};
+        int amount = 4;
         ArrayList<Integer> list = new ArrayList<>();
         ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
         coinChangeCombination(coins,0,amount,list,ans);

@@ -6,7 +6,7 @@ import java.util.Arrays;
 
 public class CoinCombination_2 {
     public static void main(String[] args){
-        int coin[] = {10,1,2,7,6,1,5};
+        int coin[] = {1,2,7,6,1,5};
         Arrays.sort(coin);
         int amount = 8;
         //coinCombination_2(coin,0,amount,"");
