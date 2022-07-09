@@ -479,6 +479,45 @@ public class BinaryTree {
             m.remove(node.data);
         return max_path;
     }
+    int maximumTurns(Node node){
+        return Math.max(leftTunrs(node.left ,0) , rightTurns(node.right , 0));
+    }
+
+    private int rightTurns(Node node, int turns) {
+        if(node == null){
+            return 0;
+        }
+        return turns+=Math.max(leftTunrs(node.left ,1) ,rightTurns(node.right ,0));
+
+    }
+
+    private int leftTunrs( Node node, int turns) {
+        if(node == null){
+            return 0;
+        }
+        return turns+=Math.max(leftTunrs(node.left , 0) ,rightTurns(node.right , 1));
+    }
+    public boolean isSameTree(Node p, Node q) {
+        if(p == null && q == null){
+            return true;
+        }
+        if(p ==null || q == null){
+            return false;
+        }
+       if( p.data!=q.data){
+           return false;
+       }
+
+       boolean leftN = isSameTree(p.left ,q.left);
+       boolean rightN = isSameTree(p.right , q.right);
+       if(leftN && rightN){
+           return true;
+       }else {
+           return false;
+       }
+
+
+    }
 
 
 }

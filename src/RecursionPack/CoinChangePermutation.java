@@ -2,8 +2,8 @@ package RecursionPack;
 
 public class CoinChangePermutation {
     public static void main(String [] args){
-        int [] coins = {1,2,3,4,5};
-        int amount = 4;
+        int [] coins = {2,3,5};
+        int amount = 10;
         coinsChangePermutation(coins,amount,"");
     }
     public static void coinsChangePermutation(int [] coins, int amount, String ans){

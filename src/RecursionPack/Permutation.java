@@ -4,7 +4,7 @@ public class Permutation {
 
     public static void main(String[] args){
 
-        permutation("abca","");
+       // permutation("K7D51","");
         System.out.println();
         permutaion1("abca" , "");
 

@@ -16,7 +16,7 @@ public class BinaryClient {
        // bt.zig_Zag();
         //bt.zig_Zag2();
         //System.out.println(bt.lowestCommonAncesterval());
-        System.out.println(bt.findDistincVal());
+        //System.out.println(bt.findDistincVal());
 
 
     }
