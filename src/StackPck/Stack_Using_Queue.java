@@ -26,6 +26,11 @@ public class Stack_Using_Queue {
             this.primary.enQueue(this.helper.deQueue());
         }
     }
+    public void print() throws Exception {
+        while (!primary.isEmpty()){
+            System.out.print(primary.deQueue()+" ");
+        }
+    }
     public int pop() throws Exception {
         return this.primary.deQueue();
     }

@@ -6,7 +6,7 @@ public class Permutation {
 
        // permutation("K7D51","");
         System.out.println();
-        permutaion1("abca" , "");
+        permutaion1("123" , "");
 
     }
 

@@ -5,6 +5,8 @@ public class LinkList {
     private class Node{
         int data;
         Node next;
+
+
     }
     private Node head;
     private Node tail;
@@ -392,4 +394,35 @@ public class LinkList {
 //        }
 //
 //    }
+
+
+    public Node mergeTwoLists(Node list1, Node list2) {
+        Node temp = new Node();
+        temp.data = 0;
+        Node currNode = temp;
+
+        while (list1!=null && list2!=null){
+            if(list1.data < list2.data){
+                currNode.next = list1;
+                list1 = list1.next;
+            }else {
+                currNode.next = list2;
+                list2 = list2.next;
+            }
+            currNode = currNode.next;
+
+
+        }
+        if(list1 !=null){
+            currNode.next = list1;
+            list1 = list1.next;
+        }
+        if(list2!=null){
+            currNode.next = list2;
+            list2 = list2.next;
+        }
+        return temp.next;
+
+    }
 }
+

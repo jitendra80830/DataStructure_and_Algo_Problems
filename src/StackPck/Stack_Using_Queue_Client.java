@@ -7,8 +7,9 @@ public class Stack_Using_Queue_Client {
         s.push(22);
         s.push(32);
         s.push(42);
-        s.push(52);
-        s.push(62);
+//        s.push(52);
+//        s.push(62);
+       // s.print();
         System.out.println(s.pop());
         System.out.println(s.peek());
     }

@@ -221,6 +221,9 @@ public class BinaryTree {
 
     public void zig_Zag() {
         Queue<Node> q = new LinkedList<>(); //queue
+        List<List<Integer>> ans = new ArrayList<>();
+        
+
         q.add(this.root);//add in queue root node
         int level =0;
         while (!q.isEmpty()) {//jab tal empty nhi ho
@@ -515,8 +518,53 @@ public class BinaryTree {
        }else {
            return false;
        }
+    }
+    public int minDepth(Node root) {
+        if(root == null){
+            return 0;
+        }
+        if(root.left == null && root.right == null){
+            return 1;
+        }
+        if(root.left == null){
+            return 1 + minDepth(root.right);
+        }
+        if(root.right == null){
+            return 1 + minDepth(root.left);
+        }
+        return 1 + Math.min(minDepth(root.left) , minDepth(root.right));
 
 
+    }
+    public int maxDepth(Node root) {
+        if(root == null){
+            return 0;
+        }
+        if(root.left == null && root.right == null){
+            return 1;
+        }
+        if(root.left == null){
+            return 1 + maxDepth(root.right);
+        }
+        if(root.right == null){
+            return 1 + maxDepth(root.left);
+        }
+        return 1 + Math.max(maxDepth(root.left) , maxDepth(root.right));
+
+    }
+    public boolean isSymmetric(Node root) {
+        return root == null || isSymmetricHelp(root.left , root.right);
+
+    }
+
+    private boolean isSymmetricHelp(Node left, Node right) {
+        if(left == null || right == null){
+            return left == right;
+        }
+        if(left.data!=right.data){
+            return false;
+        }
+        return isSymmetricHelp(left.left , right.right) && isSymmetricHelp(left.right , right.left);
     }
 
 
