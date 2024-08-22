@@ -566,6 +566,62 @@ public class BinaryTree {
         }
         return isSymmetricHelp(left.left , right.right) && isSymmetricHelp(left.right , right.left);
     }
+    public List<String> binaryTreePaths(Node root) {
+        List<String> list = new ArrayList<>();
+        recur(root , list , "");
+        return list;
+    }
+
+    private void recur(Node root, List<String> list, String ans) {
+        if(root == null){
+            return;
+        }
+        ans+=Integer.toString(root.data);
+        if(root.left == null && root.right == null){
+            list.add(ans);
+        }else {
+            ans+="->";
+            recur(root.left , list ,ans);
+            recur(root.right , list , ans);
+        }
+
+    }
+    boolean ans = false;
+    public boolean isSubtree(Node root, Node subRoot) {
+        inorder(root , subRoot);
+        return  ans;
+
+    }
+
+    private void inorder(Node root, Node subRoot) {
+        if(root!=null){
+            inorder(root.left , subRoot);
+            boolean x = match(root , subRoot);
+            if(x){
+                ans = x;
+            }
+            inorder(root.right , subRoot);
+        }
+    }
+
+    private boolean match(Node root, Node subRoot) {
+        if(root!=null && subRoot!=null){
+            boolean a = match(root.left , subRoot.left);
+            boolean b = match(root.right , subRoot.right);
+
+            if(root.data == subRoot.data && a == true & b == true){
+                return true;
+            }else {
+                return false;
+            }
+
+        }else if(root == null && subRoot == null){
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 
 
 }
